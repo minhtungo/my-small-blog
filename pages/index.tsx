@@ -13,9 +13,6 @@ interface Props {
 }
 
 export default function Home({ posts }: Props) {
-  console.log('hello')
-
-  console.log(posts)
   return (
     <div className="bg-black text-white">
       <Head>

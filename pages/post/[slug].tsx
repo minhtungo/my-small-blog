@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next'
 import PortableText from 'react-portable-text'
+import Comments from '../../components/CommentForm'
 import Header from '../../components/Header'
 import { sanityClient, urlFor } from '../../sanity'
 import { Post } from '../../typings'
@@ -10,7 +11,7 @@ interface Props {
 
 const Post = ({ post }: Props) => {
   return (
-    <main>
+    <main className="bg-black text-white">
       <Header />
       <img
         className="h-52 w-full object-cover"
@@ -18,8 +19,6 @@ const Post = ({ post }: Props) => {
       />
 
       <article className="mx-auto max-w-3xl p-5">
-        <h1 className="mt-10 mb-3 text-3xl">{post.title}</h1>
-        <h2 className="text-xl font-light text-gray-500">{post.title}</h2>
         <div className="flex items-center space-x-2">
           <img
             className="h-10 w-10 rounded-full"
@@ -31,7 +30,9 @@ const Post = ({ post }: Props) => {
             - {new Date(post._createdAt).toLocaleString()}
           </p>
         </div>
-        <div className='mt-10'>
+        <h1 className="mt-10 mb-3 text-3xl">{post.title}</h1>
+        <h2 className="text-xl font-light text-gray-500">{post.title}</h2>
+        <div className="mt-10">
           <PortableText
             className=""
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
@@ -39,16 +40,16 @@ const Post = ({ post }: Props) => {
             content={post.body}
             serializers={{
               h1: (props: any) => {
-                <h1 className="my-5 text-2xl font-bold" />
+                ;<h1 className="my-5 text-2xl font-bold" />
               },
               h2: (props: any) => {
-                <h1 className="my-5 text-xl font-bold" />
+                ;<h1 className="my-5 text-xl font-bold" />
               },
               li: (props: any) => {
-                <h1 className="ml-4 list-disc" />
+                ;<h1 className="ml-4 list-disc" />
               },
               link: ({ href, children }: any) => {
-                <a href={href} className="text-blue-500 hover:text-blue-700">
+                ;<a href={href} className="text-blue-500 hover:text-blue-700">
                   {children}
                 </a>
               },
@@ -56,6 +57,11 @@ const Post = ({ post }: Props) => {
           />
         </div>
       </article>
+
+      <hr className="mỵ-5 mx-auto max-w-lg border border-blue-500" />
+
+        <Comments post={post} />
+
     </main>
   )
 }
