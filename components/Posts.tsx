@@ -9,7 +9,7 @@ interface Props {
 
 const Posts = ({ posts }: Props) => {
   return (
-    <section className=" mx-auto max-w-7xl">
+    <section className="mx-auto max-w-7xl">
       <div className="grid grid-cols-1 gap-3 p-2 sm:grid-cols-2 md:gap-6 md:p-6 lg:mx-0 lg:grid-cols-3 ">
         {posts.map((post) => (
           <Link key={post._id} href={`/post/${post.slug.current}`}>

@@ -8,12 +8,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'approved',
-      title: 'Approved',
-      type: 'boolean',
-      description: "Comments won't show on the site without approval"
-    },
-    {
       name: 'email',
       type: 'string',
     },

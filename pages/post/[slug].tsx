@@ -11,10 +11,10 @@ interface Props {
 
 const Post = ({ post }: Props) => {
   return (
-    <main className="bg-black text-white">
+    <main className="mx-auto max-w-7xl bg-black text-white">
       <Header />
       <img
-        className="h-52 w-full object-cover"
+        className="max-h-96 w-full object-cover"
         src={urlFor(post.mainImage).url()}
       />
 
@@ -60,8 +60,7 @@ const Post = ({ post }: Props) => {
 
       <hr className="mỵ-5 mx-auto max-w-lg border border-blue-500" />
 
-        <Comments post={post} />
-
+      <Comments post={post} />
     </main>
   )
 }
@@ -100,8 +99,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         },
         'comments': *[
             _type == 'comment' &&
-            post._ref == ^._id &&
-            approved == true],
+            post._ref == ^._id],
         description,
         mainImage,
         slug,
