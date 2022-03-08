@@ -13,15 +13,18 @@ interface Props {
 }
 
 export default function Home({ posts }: Props) {
+  console.log('hello')
+
+  console.log(posts)
   return (
     <div className="bg-black text-white">
       <Head>
-        <title>Medium Clone</title>
+        <title>Minh Tu Ngo | Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <Banner />
-      <Posts />
+      <Posts posts={posts} />
     </div>
   )
 }
